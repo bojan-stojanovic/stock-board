@@ -14,7 +14,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const quotes = toQuoteList(data, symbols);
 
     // Quotes change during the day, so cache briefly at the edge
-    res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=30");
+    res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=120");
     return res.status(200).json({ quotes });
   } catch (err) {
     return sendError(res, err);
