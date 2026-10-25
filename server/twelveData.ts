@@ -60,23 +60,35 @@ export async function twelveGet(path: string, params: Record<string, string>) {
     url.searchParams.set(key, value);
   }
 
+  // Log the request without the key
+  const safeUrl = new URL(url);
+  safeUrl.searchParams.delete("apikey");
+
   let res: Response;
   try {
     res = await fetch(url);
-  } catch {
+  } catch (err) {
+    console.error("Twelve Data network error", safeUrl.toString(), err);
     throw new UpstreamError("Market data unavailable", 502);
   }
-  if (!res.ok) throw new UpstreamError("Market data unavailable", 502);
 
-  const data = await res.json();
+  const data = await res.json().catch(() => null);
 
-  // Twelve Data often returns HTTP 200 with an error body, so check the payload too
-  if (data?.status === "error") {
-    if (data.code === 429) {
+  if (!res.ok || data?.status === "error") {
+    console.error(
+      "Twelve Data error",
+      safeUrl.toString(),
+      res.status,
+      data?.code,
+      data?.message,
+    );
+
+    if (res.status === 429 || data?.code === 429) {
       throw new UpstreamError("Rate limit reached, try again in a minute", 429);
     }
-    throw new UpstreamError("Market data error", 502);
+    throw new UpstreamError("Market data unavailable", 502);
   }
+
   return data;
 }
 
