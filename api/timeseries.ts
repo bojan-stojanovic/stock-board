@@ -1,6 +1,11 @@
 // api/timeseries.ts
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { parseSymbols, sendError, twelveGet, UpstreamError } from "../server/twelveData";
+import {
+  parseSymbols,
+  sendError,
+  twelveGet,
+  UpstreamError,
+} from "../server/twelveData.js";
 
 // Trading days per range. The client sends a range name, never raw counts.
 const RANGES: Record<string, number> = {

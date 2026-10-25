@@ -1,11 +1,9 @@
-// api/quote.ts
-import type { VercelRequest, VercelResponse } from "@vercel/node";
 import {
   parseSymbols,
   sendError,
   toQuoteList,
   twelveGet,
-} from "../server/twelveData";
+} from "../server/twelveData.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
