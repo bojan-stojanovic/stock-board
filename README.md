@@ -2,9 +2,6 @@
 
 A stock watchlist and portfolio dashboard built with React. Track quotes, see price history, and follow the value and profit or loss of holdings you enter yourself.
 
-**Live demo:** [your-url.vercel.app]
-![Dashboard screenshot](docs/dashboard.png)
-
 > Quotes are delayed and may be incomplete. This project is for demonstration and learning. Nothing here is investment advice.
 
 ## Features
