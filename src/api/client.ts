@@ -1,4 +1,3 @@
-// src/api/client.ts
 import type { Quote, TimeSeriesResponse } from "../types/market";
 
 export class ApiError extends Error {

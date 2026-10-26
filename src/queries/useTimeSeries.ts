@@ -1,4 +1,3 @@
-// src/queries/useTimeSeries.ts
 import { useQuery } from "@tanstack/react-query";
 import { fetchTimeSeries } from "../api/client";
 

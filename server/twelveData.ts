@@ -1,4 +1,3 @@
-// server/twelveData.ts
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 const BASE_URL = "https://api.twelvedata.com";

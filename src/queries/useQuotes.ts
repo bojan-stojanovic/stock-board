@@ -1,4 +1,3 @@
-// src/queries/useQuotes.ts
 import { useQuery } from "@tanstack/react-query";
 import { fetchQuotes, ApiError } from "../api/client";
 
@@ -9,6 +8,7 @@ export function useQuotes(symbols: string[]) {
   return useQuery({
     queryKey: ["quotes", sorted],
     queryFn: () => fetchQuotes(sorted),
+    refetchOnWindowFocus: false,
     enabled: sorted.length > 0,
     staleTime: 5 * 60_000,
     // Poll every 5 minutes, not every minute. Free plans don't allow more.

@@ -1,4 +1,3 @@
-// src/components/charts/PriceChart.tsx
 import {
   CartesianGrid,
   Line,

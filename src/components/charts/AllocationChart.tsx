@@ -1,4 +1,3 @@
-// src/components/charts/AllocationChart.tsx
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 
 const COLORS = [

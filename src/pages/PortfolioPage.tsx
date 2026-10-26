@@ -1,4 +1,3 @@
-// src/pages/PortfolioPage.tsx
 import { useMemo, useState } from "react";
 import AllocationChart from "../components/charts/AllocationChart";
 import Card from "../components/ui/Card";
@@ -9,7 +8,7 @@ import HoldingForm from "../components/portfolio/HoldingForm";
 import HoldingsTable from "../components/portfolio/HoldingsTable";
 import SummaryCards from "../components/portfolio/SummaryCards";
 import { summarizePortfolio } from "../lib/portfolio";
-import { useQuotes } from "../queries/useQuotes";
+import { useTrackedQuotes } from "../queries/useTrackedQuotes";
 import { usePortfolioStore } from "../stores/portfolioStore";
 import type { Holding } from "../types/market";
 
@@ -20,8 +19,7 @@ export default function PortfolioPage() {
   // null = modal closed, "new" = adding, a Holding = editing that holding
   const [formMode, setFormMode] = useState<"new" | Holding | null>(null);
 
-  const symbols = useMemo(() => [...new Set(holdings.map((h) => h.symbol))], [holdings]);
-  const quotesQuery = useQuotes(symbols);
+  const quotesQuery = useTrackedQuotes();
 
   const prices = useMemo(
     () => Object.fromEntries((quotesQuery.data ?? []).map((q) => [q.symbol, q.price])),

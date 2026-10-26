@@ -1,16 +1,15 @@
-// src/pages/DashboardPage.tsx
 import AddSymbolForm from "../components/watchlist/AddSymbolForm";
 import WatchlistTable, { type WatchlistRow } from "../components/watchlist/WatchlistTable";
 import Card from "../components/ui/Card";
 import ErrorState from "../components/ui/ErrorState";
 import { TableSkeleton } from "../components/ui/Skeleton";
-import { useQuotes } from "../queries/useQuotes";
+import { useTrackedQuotes } from "../queries/useTrackedQuotes";
 import { useWatchlistStore } from "../stores/watchlistStore";
 
 export default function DashboardPage() {
   const symbols = useWatchlistStore((s) => s.symbols);
   const removeSymbol = useWatchlistStore((s) => s.removeSymbol);
-  const query = useQuotes(symbols);
+  const query = useTrackedQuotes();
 
   const quotes = query.data ?? [];
   const rows: WatchlistRow[] = symbols.map((symbol) => ({

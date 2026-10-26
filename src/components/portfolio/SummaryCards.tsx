@@ -1,4 +1,3 @@
-// src/components/portfolio/SummaryCards.tsx
 import { formatMoney, formatPercent, trendArrow, trendClass } from "../../lib/format";
 import type { PortfolioSummary } from "../../lib/portfolio";
 

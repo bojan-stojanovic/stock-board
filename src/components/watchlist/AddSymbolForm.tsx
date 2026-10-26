@@ -1,5 +1,4 @@
-// src/components/watchlist/AddSymbolForm.tsx
-import { useState, type FormEvent } from "react";
+import { useState, type SubmitEvent } from "react";
 import { useWatchlistStore } from "../../stores/watchlistStore";
 
 export default function AddSymbolForm() {
@@ -7,7 +6,7 @@ export default function AddSymbolForm() {
   const [value, setValue] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  function onSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     const message = addSymbol(value);
     setError(message);

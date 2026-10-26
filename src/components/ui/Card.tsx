@@ -1,4 +1,3 @@
-// src/components/ui/Card.tsx
 import type { ReactNode } from "react";
 
 export default function Card({ children }: { children: ReactNode }) {

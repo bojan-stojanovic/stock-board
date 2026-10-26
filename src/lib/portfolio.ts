@@ -1,4 +1,3 @@
-// src/lib/portfolio.ts
 import type { Holding } from "../types/market";
 import { isValidSymbol } from "./symbols";
 

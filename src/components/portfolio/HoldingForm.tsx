@@ -1,5 +1,4 @@
-// src/components/portfolio/HoldingForm.tsx
-import { useState, type FormEvent } from "react";
+import { useState, type SubmitEvent } from "react";
 import { validateHolding } from "../../lib/portfolio";
 import { MAX_WATCHLIST, normalizeSymbol } from "../../lib/symbols";
 import { usePortfolioStore } from "../../stores/portfolioStore";
@@ -22,7 +21,7 @@ export default function HoldingForm({ initial, otherSymbols, onDone }: Props) {
   const [buyPrice, setBuyPrice] = useState(initial ? String(initial.buyPrice) : "");
   const [error, setError] = useState<string | null>(null);
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  function onSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const input = {

@@ -1,4 +1,3 @@
-// src/pages/StockPage.tsx
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import PriceChart from "../components/charts/PriceChart";
@@ -7,7 +6,7 @@ import ErrorState from "../components/ui/ErrorState";
 import { formatMoney, formatPercent, trendArrow, trendClass } from "../lib/format";
 import { periodReturnPercent } from "../lib/portfolio";
 import { isValidSymbol, normalizeSymbol } from "../lib/symbols";
-import { useQuotes } from "../queries/useQuotes";
+import { useTrackedQuotes } from "../queries/useTrackedQuotes";
 import { useTimeSeries } from "../queries/useTimeSeries";
 
 const RANGES = ["1M", "6M", "1Y"] as const;
@@ -27,7 +26,7 @@ export default function StockPage() {
   const [range, setRange] = useState<Range>("1M");
 
   // Disabled when the symbol is invalid, so no request goes out
-  const quoteQuery = useQuotes(valid ? [symbol] : []);
+  const quoteQuery = useTrackedQuotes(valid ? [symbol] : []);
   const seriesQuery = useTimeSeries(valid ? symbol : "", range);
 
   const quote = quoteQuery.data?.find((q) => q.symbol === symbol);

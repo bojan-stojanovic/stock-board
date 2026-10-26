@@ -1,4 +1,3 @@
-// src/components/portfolio/HoldingsTable.tsx
 import type { PositionSummary } from "../../lib/portfolio";
 import { formatMoney, formatPercent, trendArrow, trendClass } from "../../lib/format";
 

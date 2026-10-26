@@ -1,4 +1,3 @@
-// src/lib/symbols.ts
 export const DEFAULT_WATCHLIST = ["AAPL", "MSFT", "NVDA", "SPY"];
 export const MAX_WATCHLIST = 10;
 

@@ -1,4 +1,3 @@
-// src/components/watchlist/WatchlistTable.tsx
 import type { Quote } from "../../types/market";
 import { formatMoney, formatPercent, trendArrow, trendClass } from "../../lib/format";
 import { Link } from "react-router-dom";

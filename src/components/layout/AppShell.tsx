@@ -1,4 +1,3 @@
-// src/components/layout/AppShell.tsx
 import { NavLink, Outlet } from "react-router-dom";
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>

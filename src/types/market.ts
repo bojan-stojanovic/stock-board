@@ -1,4 +1,3 @@
-// src/types/market.ts
 export interface Quote {
   symbol: string;
   name: string;

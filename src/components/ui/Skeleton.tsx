@@ -1,4 +1,3 @@
-// src/components/ui/Skeleton.tsx
 export function TableSkeleton({ rows = 4 }: { rows?: number }) {
   return (
     <div className="space-y-3" aria-label="Loading quotes" aria-busy="true">

@@ -1,4 +1,3 @@
-// src/stores/watchlistStore.ts
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import {
